@@ -5,6 +5,11 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Videogames from './pages/Videogames';
 import Reviews from './pages/Reviews';
+import AddVideogame from './pages/AddVideogame';
+import EditVideogame from './pages/EditVideogame';
+import Users from './pages/Users';
+import Feed from './pages/Feed';
+import ExploreGames from './pages/ExploreGames';
 
 // Componente para proteger rutas
 function PrivateRoute({ children }) {
@@ -66,13 +71,21 @@ function App() {
                         } 
                     />
                     <Route 
-                        path="/" 
-                        element={
-                            <PrivateRoute>
-                                <Home />
-                            </PrivateRoute>
-                        } 
-                    />
+                       path="/" 
+                       element={
+                         <PrivateRoute>
+                          <Feed />
+                         </PrivateRoute>
+    } 
+/>
+<Route 
+    path="/home" 
+    element={
+        <PrivateRoute>
+            <Home />
+        </PrivateRoute>
+    } 
+/>
                     <Route 
                         path="/videogames" 
                         element={
@@ -82,6 +95,14 @@ function App() {
                         } 
                     />
                     <Route 
+    path="/explore" 
+    element={
+        <PrivateRoute>
+            <ExploreGames />
+        </PrivateRoute>
+    } 
+/>
+                    <Route 
                         path="/reviews" 
                         element={
                             <PrivateRoute>
@@ -89,6 +110,30 @@ function App() {
                             </PrivateRoute>
                         } 
                     />
+                    <Route 
+                        path="/add-videogame" 
+                        element={
+                           <PrivateRoute>
+                              <AddVideogame />
+                            </PrivateRoute>
+                        } 
+                     />
+                     <Route 
+                          path="/edit-videogame/:id" 
+                          element={
+                          <PrivateRoute>
+                            <EditVideogame />
+                          </PrivateRoute>
+                                } 
+                    />
+                    <Route 
+    path="/users" 
+    element={
+        <PrivateRoute>
+            <Users />
+        </PrivateRoute>
+    } 
+/>
                 </Routes>
             </AuthProvider>
         </Router>

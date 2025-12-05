@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
+import Navbar from '../components/Navbar';
 
 function Reviews() {
     const [videogames, setVideogames] = useState([]);
@@ -41,11 +42,12 @@ function Reviews() {
     }
 
     return (
-        <div style={{ 
-            minHeight: '100vh', 
-            backgroundColor: '#1a1a2e',
-            padding: '20px'
-        }}>
+    <div style={{ 
+        minHeight: '100vh', 
+        backgroundColor: '#1a1a2e',
+    }}>
+        <Navbar />
+        <div style={{ padding: '20px' }}></div>
             <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <h1 style={{ color: '#4F46E5', marginBottom: '30px' }}>
                     📝 Reseñas
